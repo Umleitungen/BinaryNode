@@ -1,0 +1,50 @@
+
+public class Node {
+
+    public int val;
+
+    public Node left;
+    public Node right;
+    public Node(int value){
+        this.val= value;
+    }
+}
+
+public class middle {
+
+    public void middleSearch(Node head){
+        if (head == null) return;
+        middleSearch(head.left);
+        System.out.print(" " + head.val);
+        middleSearch(head.right);
+
+    }
+
+    public void middleSearchV2(Node head){
+        if (head == null) return;
+        Stack<Node> myStack = new Stack<>();
+        Node tmp=head;
+       while(tmp!=null||!myStack.empty()){
+
+           while(tmp!=null){;
+               myStack.push(tmp);
+               tmp=tmp.left;
+           }
+
+           tmp=myStack.pop();
+           System.out.print(tmp.data+ " ");
+
+           if (tmp.right!=null){
+
+               if(tmp.right!=null){
+                   tmp=tmp.right;
+               } else {
+                   tmp=null;
+               }
+           }
+           System.out.println();
+
+       }
+
+    }
+}
